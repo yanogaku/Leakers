@@ -10,12 +10,13 @@ class LeakController extends Controller
 {
     //リーク一覧表示
     public function showList(){
-        $leaks=Leak::all();
+        $leaks=Leak::all()->sortByDesc("id");
         return view('list',['leaks'=>$leaks]); 
      }
      //リーク詳細表示
     public function showDetail($id){
         $leak=Leak::find($id);
+        $leak->increment('views');
         return view('detail',['leak'=>$leak]); 
      }
      // リーク入力画面

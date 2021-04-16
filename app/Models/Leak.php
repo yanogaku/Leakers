@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Leak extends Model
 {
     protected $table='leaks';
-    protected $fillable=['title','content'];
+    protected $fillable=['title','content','views'];
 }

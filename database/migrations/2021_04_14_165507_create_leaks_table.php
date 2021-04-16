@@ -20,6 +20,13 @@ class CreateLeaksTable extends Migration
                 $table->string('title',32);
                 $table->text('content');
                 $table->timestamps();
+
+            });
+        }
+        // カラムが無かったら作る
+        if(!Schema::hasColumn('leaks','views')){
+            Schema::table('leaks', function (Blueprint $table) {
+                $table->integer('views')->default('0');
             });
         }
         
