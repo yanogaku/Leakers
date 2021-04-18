@@ -29,6 +29,15 @@ class LeakController extends Controller
          Leak::create($inputs);
          return redirect(route('leaks'));
      }
+     // ワード検索
+     public function showSearch(Request $request){
+         $leaks=Leak::where('title','like',"%{$request->search}%")
+         ->orWhere('content','like',"%{$request->search}%")
+         ->paginate(5);
+         return view('list',['leaks'=>$leaks]); 
+
+     }
+
 
 
 }

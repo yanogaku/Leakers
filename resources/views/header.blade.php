@@ -13,8 +13,9 @@
           <a class="nav-link text-white" href="{{ route('create') }}">匿名で投稿する</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="#タグ名" aria-label="Search">
+      <form method="POST" class="d-flex" action="{{ route('search') }}">
+        @csrf
+        <input class="form-control me-2" type="search" placeholder="#タグ名　キーワード" aria-label="Search" name="search" value="">
         <button class="btn btn-primary" type="submit">検索</button>
       </form>
     </div>

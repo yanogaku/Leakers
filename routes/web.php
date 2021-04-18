@@ -10,6 +10,8 @@ Route::get('/leak/{id}', 'App\Http\Controllers\LeakController@showDetail')->name
 Route::get('/create', 'App\Http\Controllers\LeakController@showCreate')->name('create');
 // リーク投稿
 Route::post('/store', 'App\Http\Controllers\LeakController@exeStore')->name('store');
+// ワード検索
+Route::post('/search', 'App\Http\Controllers\LeakController@showSearch')->name('search');
 
 
 
