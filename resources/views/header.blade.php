@@ -15,7 +15,7 @@
       </ul>
       <form method="POST" class="d-flex" action="{{ route('search') }}">
         @csrf
-        <input class="form-control me-2" type="search" placeholder="#タグ名　キーワード" aria-label="Search" name="search" value="">
+        <input class="form-control me-2" type="search" placeholder="キーワードを検索" aria-label="Search" name="search" value="">
         <button class="btn btn-primary" type="submit">検索</button>
       </form>
     </div>

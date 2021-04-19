@@ -10,9 +10,9 @@
                           Dropdown
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                          <li><button class="dropdown-item" type="button">新着</button></li>
-                          <li><button class="dropdown-item" type="button">古い順</button></li>
-                          <li><button class="dropdown-item" type="button">人気</button></li>
+                          <li><form action="{{ route('leaks') }}"><button class="dropdown-item" type="submit">新着</button></form></li>
+                          <li><form action="{{ route('old') }}"><button class="dropdown-item" type="submit">古い順</button></form></li>
+                          <li><form action="{{ route('pop') }}"><button class="dropdown-item" type="submit">人気</button></form></li>
                         </ul>
                       </div>
                 </div>

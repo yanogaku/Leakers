@@ -8,9 +8,19 @@ use App\Http\Requests\LeakRequest;
 
 class LeakController extends Controller
 {
-    //リーク一覧表示
+    // リーク一覧（新着）
     public function showList(){
-        $leaks=Leak::all()->sortByDesc("id");
+        $leaks=Leak::all()->sortByDesc('id');
+        return view('list',['leaks'=>$leaks]); 
+     }
+    // リーク一覧（古い）
+    public function oldList(){
+        $leaks=Leak::all();
+        return view('list',['leaks'=>$leaks]); 
+     }
+    // リーク一覧（人気）
+    public function popList(){
+        $leaks=Leak::all()->sortByDesc('viewsン');
         return view('list',['leaks'=>$leaks]); 
      }
      //リーク詳細表示
