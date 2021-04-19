@@ -11,17 +11,21 @@ class LeakController extends Controller
     // リーク一覧（新着）
     public function showList(){
         $leaks=Leak::all()->sortByDesc('id');
-        return view('list',['leaks'=>$leaks]); 
+        $sort="新着順";
+        return view('list',['leaks'=>$leaks,'sort'=>$sort]); 
      }
     // リーク一覧（古い）
     public function oldList(){
         $leaks=Leak::all();
-        return view('list',['leaks'=>$leaks]); 
+        $sort="古い順";
+        return view('list',['leaks'=>$leaks,'sort'=>$sort]); 
      }
     // リーク一覧（人気）
     public function popList(){
-        $leaks=Leak::all()->sortByDesc('viewsン');
-        return view('list',['leaks'=>$leaks]); 
+        $leaks=Leak::all()->sortByDesc('views');
+        $sort="人気順";
+
+        return view('list',['leaks'=>$leaks,'sort'=>$sort]); 
      }
      //リーク詳細表示
     public function showDetail($id){
@@ -45,9 +49,6 @@ class LeakController extends Controller
          ->orWhere('content','like',"%{$request->search}%")
          ->paginate(5);
          return view('list',['leaks'=>$leaks]); 
-
      }
-
-
 
 }
